@@ -23,7 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
 
 import java.util.ArrayList;
 
@@ -56,27 +56,16 @@ public class EarthquakeActivity extends AppCompatActivity {
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         earthquakeListView.setAdapter(adapter);
-        Log.d("test","antes");
+
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> adapterView,View view, int position, long l){
-                Log.d("test", "cliquei");
-            }
-        });
-/*
-        earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.d("test","clicked");
-                String url = "http://www.google.com";
-                Toast.makeText(getBaseContext(),url,Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView adapterView,View view, int position, long l){
+                String url = earthquakes.get(position).getURL();
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
-
             }
         });
-*/
     }
 }
